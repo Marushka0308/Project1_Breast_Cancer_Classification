@@ -41,6 +41,8 @@ Introduces non linearity in the network and also decides whether a neuron can co
 6. Leaky ReLU function: To solve the dying ReLU problem, we simply make the horizontal line in the negative x axis into a non horizontal line by adding a slope around 0.001. Hence, gradient doesnt become zero. Note: in parametric ReLU, the slop of the horizontal line is adjusted to y = ax. 
 
 
+![Alt text](activation_functions.png)
+
 Sparsity of an activation: In a big NN w/ several neurons. A sigmoid or tanh function will cause almost all neurons to fire in an analog way => almost all activations will be processesd to get the n/w o/p. Hence, the activation is dense. This is costly. We ideally want only a few neurons in the NN to activate, making the activation sparse and efficient.
 
 ### WHICH ACTIVATION FUNCTION TO USE AND WHY WE USE NON LINEAR AF?
