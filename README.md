@@ -124,3 +124,39 @@ BATCH AND BATCH SIZE
 
 ITERATIONS
 No. of batches to complete one epoch. Number of batches = Number of iterations for one epoch. Eg: Suppose we have a dataset of 34000 training examples and you divide the dataset into batches of 500. To complete 1 epoch, it would take 68 iterations. 
+
+
+# UNDERSTANDING THE BREAST CLASSIFICATION PROJECT
+
+## DATASET
+1. The breast cancer dataset is a binary classification dataset which consists of 2 classes i.e., malignant and benign. The number of samples per class is 212 (M) and 357 (B)
+2. Dimensionality or number of features of this dataset is 30
+3. Our goal is to classify whether a patient has a malignant (cancerous) tumour or a benign tumour based on parameters like symmetry, texture, perimeter, area, radius etc of the tumour
+4. Scale the data since NNs are sensitive to scale and load the data using data loaders
+
+## DEFINING NEURAL NETWORK
+1. Create a fully connected layer i.e., dense linear layer of input 30 because 30 features. Output can be any value
+2. Create another fcl w/ input as o/p of prev layer and output neurons set to any value
+3. Create a final fcl w/ input as o/p of prev layer and output neurons and 1 to show if malignant or benign tumour
+4. Define DROPOUT w/ probability of 50% for generalization. It is a regularization technique to prevent overfitting by randomly setting a fraction of neurons to zero in each layer. Forces n/w to generalize features
+5. Define a foward pass of this neural network. Feed input to first fcl > pass to relu activation function
+6. Next, feed input through second fcl and pass to relu activation function. Use dropout on this input
+7. Finally, feed input thru third fcl and use sigmoid activation function (cos of binary classifcation) to get val b/w 0 and 1
+
+## DEFINING LOSS FUNCTION AND OPTIMIZER
+1. Use binary cross entropy loss because we have binary classification
+2. Adam optimizer is commonly used for updating model params
+
+## TRAINING MODEL
+1. For each epoch, set the model to training mode
+2. For each batch in the training set, first remove all gradients i.e., reset to zero, get the predictions of model for the input, get the loss i.e., difference b/w predictions and true vals
+3. Now take this loass and backpropagate it. Further, take a step with the optimizer in the direction
+4. Repeat
+
+## EVALUATING MODEL
+1. Set model to evaluation mode
+2. Get the predictions of the model on the test dataset
+3. Calculate the loss of the model by comparing predictions with ground truth
+4. Calculate accuracy
+
+
